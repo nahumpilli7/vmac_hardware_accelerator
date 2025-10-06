@@ -82,11 +82,6 @@ All user-specified timing constraints are met.
 
 ---
 
-## 📚 License
-This project is released under the **MIT License** — you’re free to use, modify, and distribute it with attribution.
-
----
-
 ## 👤 Author
 **Nahum Pilli**  
 📍 Richardson, TX  
