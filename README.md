@@ -9,6 +9,8 @@ It was integrated on a **Zynq SoC** using **AXI4-Stream** and **AXI DMA** interf
 At 200 MHz, the accelerator achieves up to **~40 GOPS** throughput with **< 1 % timing slack**, using only **~70 LUTs and 4 DSPs per lane**, proving both scalability and efficiency for low-power embedded inference applications.
 
 ![Block Diagram](docs/block_diagram.png)
+![Schematic1](docs/rtl_schematic_core.png)
+![schematic2](docs/rtl_schematic.png)
 
 ---
 
