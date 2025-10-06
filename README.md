@@ -41,7 +41,17 @@ At 200 MHz, the accelerator achieves up to **~40 GOPS** throughput with **< 1 % 
 | Resource Utilization | ~70 LUTs, 4 DSPs per lane |
 | Datapath Width | 128 bits (4 × 16 INT16 lanes) |
 
-![Synthesis Summary](docs/timing_summary.png)
+---
+
+### ⏱️ Design Timing Summary
+
+All user-specified timing constraints are met.
+
+| Type | Worst Slack | Failing Endpoints |
+|------|--------------|-------------------|
+| **Setup (WNS)** | 2.606 ns | 0 |
+| **Hold (WHS)** | 0.098 ns | 0 |
+| **Pulse Width (WPWS)** | 3.500 ns | 0 |
 
 ---
 
