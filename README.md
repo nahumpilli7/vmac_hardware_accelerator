@@ -8,6 +8,8 @@ Developed and validated using **Verilog** and **Vitis HLS**, the accelerator ena
 It was integrated on a **Zynq SoC** using **AXI4-Stream** and **AXI DMA** interfaces for high-speed communication between programmable logic and the ARM processor.  
 At 200 MHz, the accelerator achieves up to **~40 GOPS** throughput with **< 1 % timing slack**, using only **~70 LUTs and 4 DSPs per lane**, proving both scalability and efficiency for low-power embedded inference applications.
 
+![Block Diagram](docs/block_diagram.png)
+
 ---
 
 ## ⚙️ Key Features
@@ -38,6 +40,7 @@ At 200 MHz, the accelerator achieves up to **~40 GOPS** throughput with **< 1 % 
 | Timing Slack | < 1 % |
 | Resource Utilization | ~70 LUTs, 4 DSPs per lane |
 | Datapath Width | 128 bits (4 × 16 INT16 lanes) |
+![Synthesis Summary](docs/timing_summary.png)
 
 ---
 
