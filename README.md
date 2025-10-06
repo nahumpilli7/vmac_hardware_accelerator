@@ -10,7 +10,7 @@ At 200 MHz, the accelerator achieves up to **~40 GOPS** throughput with **< 1 % 
 
 ![Block Diagram](docs/block_diagram.png)
 ![Schematic1](docs/rtl_schematic_core.png)
-![schematic2](docs/rtl_schematic.png)
+![schematic2](docs/rtl_schematic_top.png)
 
 ---
 
