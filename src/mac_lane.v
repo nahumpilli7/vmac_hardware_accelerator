@@ -1,7 +1,7 @@
-//  - EW=16 (element width), AW=32 (accumulator/result width)
-//  - 2-stage pipeline (input regs -> DSP MAC -> output reg)
-//  - Pre-extend once (signed/unsigned), single (A*B)+C expression => 1 DSP/lane
-//  - Mask bypass happens after the MAC.
+// EW=16 (element width), AW=32 (accumulator/result width)
+// 2-stage pipeline (input regs -> DSP MAC -> output reg)
+// Pre-extend once (signed/unsigned), single (A*B)+C expression => 1 DSP/lane
+// Mask bypass happens after the MAC.
 module mac_lane #(parameter EW = 16, parameter AW = 32) (
   input                    clk,
   input                    rst,
@@ -32,7 +32,7 @@ module mac_lane #(parameter EW = 16, parameter AW = 32) (
   reg [AW-1:0]     s0_c;
   reg              s0_mask, s0_signed;
 
-  //Simple 1-deep in-flight control
+  //1-deep in-flight control
   wire s1_can_accept = (out_ready | ~out_valid);   //stage1/output can accept new data
   wire s0_can_load   = (~s0_valid) | s1_can_accept;
 
@@ -62,7 +62,7 @@ module mac_lane #(parameter EW = 16, parameter AW = 32) (
   end
 
 
-  //Stage 1: DSP48 MAC + output reg (single MAC expr → 1 DSP per lane)
+  //Stage 1: DSP48 MAC + output reg (single MAC expr -> 1 DSP per lane)
 
   reg              s1_valid;
   reg [AW-1:0]     y_q;
@@ -103,4 +103,5 @@ module mac_lane #(parameter EW = 16, parameter AW = 32) (
   end
 
 endmodule
+
 
