@@ -8,6 +8,8 @@ Developed and validated using **Verilog** and **Vitis HLS**, the accelerator ena
 It was integrated on a **Zynq SoC** using **AXI4-Stream** and **AXI DMA** interfaces for high-speed communication between programmable logic and the ARM processor.  
 At 200 MHz, the accelerator achieves up to **~40 GOPS** throughput with **< 1 % timing slack**, using only **~70 LUTs and 4 DSPs per lane**, proving both scalability and efficiency for low-power embedded inference applications.
 
+> **Custom-silicon counterpart:** this project is the complex-datapath and SoC-integration piece. For the full custom physical-implementation flow — a complete RTL-to-GDSII ASIC built on a hand-made standard-cell library (transistor schematics → hand-drawn layout → DRC/LVS → SPICE characterization → synthesis, P&R, and signoff), see the [Synchronous Memory Controller ASIC](https://github.com/nahumpilli7/synchronous-memory-controller-asic).
+
 ![Block Diagram](docs/block_diagram.png)
 ![Schematic1](docs/rtl_schematic_core.png)
 ![schematic2](docs/rtl_schematic_top.png)
