@@ -1,3 +1,5 @@
+`timescale 1ns/1ps
+
 // EW=16 (element width), AW=32 (accumulator/result width)
 // 2-stage pipeline (input regs -> DSP MAC -> output reg)
 // Pre-extend once (signed/unsigned), single (A*B)+C expression => 1 DSP/lane
