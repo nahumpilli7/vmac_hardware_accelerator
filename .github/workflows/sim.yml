@@ -1,0 +1,31 @@
+name: RTL simulation
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sim-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  icarus:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Install Icarus Verilog
+        run: sudo apt-get update && sudo apt-get install -y iverilog
+
+      # mac_tb is self-checking: it prints "ALL TESTS PASSED" and exits 0 on
+      # success, or $fatal (non-zero) on any scoreboard mismatch, so a failing
+      # DUT turns this job red.
+      - name: Run MAC regression
+        run: make sim
+
