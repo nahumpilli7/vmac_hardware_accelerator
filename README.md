@@ -77,14 +77,14 @@ All user-specified timing constraints are met.
 - **Languages:** Verilog  
 - **EDA Tools:** Vivado, Icarus Verilog  
 - **Hardware Platform:** Xilinx Zynq SoC (PYNQ-Z1)  
-- **Validation Tools:** Logic Analyzer, Oscilloscope (for hardware-in-loop testing)  
+- **On-board self-test:** `top_fpga.v` runs a directed vector on the DUT and reports pass/fail on LEDs.  
 - **Version Control:** Git & GitHub  
 
 ---
 
 ## ✅ Validation & Testing
 - **Simulation:** Self-checking scoreboard testbench (7 directed corner cases + 500 randomized cases with back-pressure); runs in CI on every push.  
-- **Hardware-In-Loop:** Implemented and validated on FPGA board using AXI-DMA data transfers.  
+- **On-board validation:** Synthesized to xc7z020 with an LED-based self-test of a directed vector. *(Full AXI-DMA hardware-in-loop data movement is not included in this repository.)*  
 - **Synthesis & Timing Analysis:** Closed timing at 200 MHz with < 1 % slack; confirmed area efficiency.  
 - **Stress Testing:** Random-vector testbench for overflow detection, corner-case handling, and throughput stability.  
 
