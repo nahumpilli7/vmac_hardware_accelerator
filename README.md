@@ -1,10 +1,12 @@
 # 🚀 128-bit Vector Multiply-Accumulate (VMAC) Hardware Accelerator  
-**FPGA SoC Integration | Verilog, Vitis HLS, Vivado, AXI/DMA, TinyML Optimization**
+![RTL simulation](https://github.com/nahumpilli7/vmac_hardware_accelerator/actions/workflows/sim.yml/badge.svg)
+
+**FPGA SoC Integration | Verilog, Vivado, AXI/DMA, TinyML**
 
 
 ## 🧩 Overview  
 This project implements a **128-bit pipelined Vector Multiply-Accumulate (VMAC) hardware accelerator** designed for **DSP** and **TinyML** workloads on Xilinx SoC platforms.  
-Developed and validated using **Verilog** and **Vitis HLS**, the accelerator enables **parallel vector arithmetic** with high throughput, optimized latency, and efficient FPGA resource utilization.
+Developed and validated in **Verilog** with a self-checking simulation regression, the accelerator enables **parallel vector arithmetic** with high throughput, optimized latency, and efficient FPGA resource utilization.
 
 
 It was integrated on a **Zynq SoC** using **AXI4-Stream** and **AXI DMA** interfaces for high-speed communication between programmable logic and the ARM processor.  
@@ -37,7 +39,6 @@ At 200 MHz the accelerator sustains one MAC per lane per cycle (II=1) across 4 l
 ## 🧠 Design Highlights
 - Fully **pipelined** datapath for high-throughput vector arithmetic.  
 - Simple `valid`/`ready`streaming handshake on the accelerator core. *(No AXI-Lite/AXI-Stream interface is included in this repository; the core was packaged as IP for a Zynq block design, but the BD and AXI adapters are not committed here.)* 
-- **C/RTL Co-Simulation and Hardware-In-Loop Testing** performed through Vivado & Vitis HLS.  
 - **Stress-tested and validated** for arithmetic precision, timing closure, and resource utilization.  
 - **Reusable in heterogeneous SoCs**, enabling modular integration with CPUs or other accelerators.  
 
@@ -63,3 +64,41 @@ At 200 MHz the accelerator sustains one MAC per lane per cycle (II=1) across 4 l
 
 
 All user-specified timing constraints are met.
+
+| Type | Worst Slack | Failing Endpoints |
+|------|--------------|-------------------|
+| **Setup (WNS)** | 2.606 ns | 0 |
+| **Hold (WHS)** | 0.098 ns | 0 |
+| **Pulse Width (WPWS)** | 3.500 ns | 0 |
+
+---
+
+## 🧰 Tools & Technologies
+- **Languages:** Verilog  
+- **EDA Tools:** Vivado, Icarus Verilog  
+- **Hardware Platform:** Xilinx Zynq SoC (PYNQ-Z1)  
+- **Validation Tools:** Logic Analyzer, Oscilloscope (for hardware-in-loop testing)  
+- **Version Control:** Git & GitHub  
+
+---
+
+## ✅ Validation & Testing
+- **Simulation:** Self-checking scoreboard testbench (7 directed corner cases + 500 randomized cases with back-pressure); runs in CI on every push.  
+- **Hardware-In-Loop:** Implemented and validated on FPGA board using AXI-DMA data transfers.  
+- **Synthesis & Timing Analysis:** Closed timing at 200 MHz with < 1 % slack; confirmed area efficiency.  
+- **Stress Testing:** Random-vector testbench for overflow detection, corner-case handling, and throughput stability.  
+
+---
+
+## 🧩 Future Enhancements
+- Extend to **radix-based division / multiplication units** for RISC-V vector processors.  
+- Add **parameterized precision support** (INT8/INT16/FP32).  
+- Integrate **software-configurable accumulation modes** via AXI-Lite.  
+- Explore **ASIC porting and TinyML benchmarking** for further performance scaling.  
+
+---
+
+## 👤 Author
+**Nahum Pilli**  
+📍 Richardson, TX  
+🔗 [LinkedIn](https://linkedin.com/in/nahum-pilli-9b7495230) | 📧 nahumpilli@gmail.com  
